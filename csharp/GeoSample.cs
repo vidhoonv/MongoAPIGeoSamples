@@ -53,8 +53,8 @@ namespace TestMongoApp
         {
             const string MongoAuthScramSHATypeString = "SCRAM-SHA-1";
             List<MongoServerAddress> servers = new List<MongoServerAddress>();
-
-            servers.Add(new MongoServerAddress("mongogeotest.documents-bvt.windows-int.net", 10255));
+            int port = 10250; //update port to use
+            servers.Add(new MongoServerAddress("<DocDBAccountEndpoint>", port));
             MongoClientSettings settings = new MongoClientSettings();
             settings.Servers = servers;
 
@@ -66,9 +66,9 @@ namespace TestMongoApp
             settings.SslSettings = new SslSettings();
             settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
 
-            MongoIdentity identity1 = new MongoInternalIdentity(GeoSample.DBName, "mongogeotest ");
+            MongoIdentity identity1 = new MongoInternalIdentity(GeoSample.DBName, "<dbaccname>");
             // [SuppressMessage("Microsoft.Security", "CS002:SecretInNextLine")]
-            MongoIdentityEvidence evidence = new PasswordEvidence("jU4DlJ1Fwy7qcovsJcNi9CD6CSkdh7bB00Z8Xm8drBaiNnEmuNK8hhrBna90ESIfWK0NiPtStCRzn5iuhm9Vkw==");
+            MongoIdentityEvidence evidence = new PasswordEvidence("<password>");
 
             settings.Credentials = new List<MongoCredential>()
             {
