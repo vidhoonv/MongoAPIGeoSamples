@@ -69,7 +69,11 @@ public class GeoSample {
 		   }
 		   
 		   //Example of reading from a specific region using tags
-		   Tag tag = new Tag("region", "<regionName>"); //you specify your read region here as a Tag.
+		   //you specify your read region here as a Tag.
+		   //pick region name based on your DocumentDB region from:
+		   //https://azure.microsoft.com/en-us/regions/
+		   //or use portal for region names
+		   Tag tag = new Tag("region", "<regionName>"); 
 		   TagSet tagset = new TagSet(tag);
 		   List<TagSet> tagsetList = new ArrayList<TagSet>();
 		   tagsetList.add(tagset);
